@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "concurrentetf": {
+      "hosting": {
+        "concurrente": [
+          "concurrentetf"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "concurrentetf"
+  }
+}

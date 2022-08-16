@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "ec880623-85ba-4150-be98-416f2f3f7f31",
+		"name": "concurrente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"renxzen@gmail.com\",\n    \"password\": \"123123123\",\n    \"names\": \"Renzo Stephano Mondragón Arango\",\n    \"birthdate\": \"1995-02-13T00:00:00-05:00\",\n    \"gender\": \"Male\",\n    \"firstVaccine\": \"Sinopharm\",\n    \"secondVaccine\": \"Sinopharm\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"renxzen@gmail.com\",\n    \"password\" : \"123123123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjb25jdXJyZW5jeSIsImV4cCI6MTYzNzQ0NDg1NiwiaWF0IjoxNjM3NDQzNjU2LCJpc3MiOiJHTyBBUEkiLCJzdWIiOiJyZW54emVuQGdtYWlsLmNvbSJ9.p47icwUwkE4LGIEeNZ9Qn1Ac9Y0E8REhl-XesutUwUoLiuSORVQHkNHHYdSe6OF0r9jt4Z3XnjEvU5cU5NKQwg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/find?email=renxzen@gmail.com",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"find"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "renxzen@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prediction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjb25jdXJyZW5jeSIsImV4cCI6MTYzNzU0MjU5MywiaWF0IjoxNjM3NTQxMzkzLCJpc3MiOiJHTyBBUEkiLCJzdWIiOiJyZW54emVuQGdtYWlsLmNvbSJ9.JmIzV159PiMjFpp2Hb9lru8NQdBZzldMRDChMiOlNJ370C6LfKVZIYCfUyrZW16eBEh4jjhIUGdMBdwuLLIL8g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\":59,\n    \"gender\":\"Male\",\n    \"firstVaccine\":\"Sinopharm\",\n    \"secondVaccine\":\"Ninguna\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/predict?email=renxzen@gmail.com",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"predict"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "renxzen@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Prediction 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJjb25jdXJyZW5jeSIsImV4cCI6MTYzNzU0MTMwNywiaWF0IjoxNjM3NTQwMTA3LCJpc3MiOiJHTyBBUEkiLCJzdWIiOiJyZW54emVuQGdtYWlsLmNvbSJ9.ApIlgaU3NvDQzYvoJA_KfCGvXLGna-hTx4OMfh-K0Z80RPLBp0te-WJG3JfJkGhdcZiNPq04DulOeiu_rJOv-Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\":59,\n    \"gender\":\"Male\",\n    \"firstVaccine\":\"Ninguna\",\n    \"secondVaccine\":\"Ninguna\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8080"
+		}
+	]
+}

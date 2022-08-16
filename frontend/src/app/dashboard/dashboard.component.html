@@ -1,0 +1,89 @@
+<div class="all">
+
+    <div *ngIf="user">
+        <div class="container">
+
+            <div class="user-data">
+                <h1>
+                    Bienvenido {{user.displayName || ''}}
+                </h1>
+                <h1>¿Debo cuidarme del COVID?</h1>
+                <div class="form">
+                    <label for="Age">Ingresa tu edad:</label>
+                    <input type="number" placeholder="0" [(ngModel)]="this.age">
+                    <label for="Gender">Ingresa tu género:</label>
+                    <select id="Gender" name="Gender" [(ngModel)]="this.gender">
+                        <option value="Male">Hombre</option>
+                        <option value="Female">Mujer</option>
+                    </select>
+                    <label for="Dosis">Nro de Dosis:</label>
+                    <select id="Dosis" name="Dosis" [(ngModel)]="this.nDosis">
+                        <option value=0 selected>Ninguno</option>
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                    </select>
+                    <label for="Fabricante">Fabricante:</label>
+                    <select id="Fabricante" name="Fabricante" [(ngModel)]="this.fabricante" [disabled]="this.nDosis==0">
+                        <option value="" hidden>Seleccione</option>
+                        <option value="Pfizer">Pfizer</option>
+                        <option value="Sinopharm">Sinopharm</option>
+                        <option value="AstraZeneca">AstraZeneca</option>
+                    </select>
+
+
+                    <button (click)="getPrediction()">Mostrar Predicción</button>
+                </div>
+                <div class="prediccion" *ngIf="show">
+                    <div class="vivira" *ngIf="prediction">
+                        <h1>Riesgo Bajo</h1>
+                        <p>Aunque tengas riesgo de sintomas fatales bajos, recuerda siempre:</p>
+                        <div class="cards">
+                            <div class="card card1">
+                                <span class="material-icons-outlined md-48">masks</span>
+                                Usa Mascarilla
+                            </div>
+                            <div class="card card2">
+                                <span class="material-icons-outlined md-48">groups</span>
+                                No entrar a espacios muy congestionados
+                            </div>
+                            <div class="card card3">
+                                <span class="material-icons-outlined md-48">directions_run</span>
+                                Realiza ejercio moderado
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="morira" *ngIf="!prediction">
+                        <h1>Riesgo Alto</h1>
+                        <p>Debido a tener riesgo síntomas fatales altos, te recomendamos que:</p>
+                        <div class="cards">
+                            <div class="card card1">
+                                <div>
+                                    <span class="material-icons-outlined md-48">masks</span>
+                                    <span class="material-icons-outlined md-48">masks</span>
+                                </div>
+                                <!-- <span class="material-icons-outlined md-48">masks</span> -->
+                                Usa Doble Mascarilla
+                            </div>
+                            <div class="card card2">
+                                <div>
+                                    <span class="material-icons-outlined md-48">6_ft_apart</span>
+                                </div>
+                                <!-- <span class="material-icons-outlined md-48">groups</span> -->
+                                Mantén 2 metros de distancia con los demás
+                            </div>
+                            <div class="card card3">
+                                <span class="material-icons-outlined md-48">sanitizer</span>
+                                Usa alcohol cada vez que toques una superficie
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button (click)="logout()" class="login-with-google-btn">Logout</button>
+            </div>
+        </div>
+
+
+    </div>
+</div>
